@@ -48,12 +48,12 @@ namespace MagicLeapDool
 
         void UpdateNavMesh(bool asyncUpdate = false)
         {
-            MyNavMeshSourceTag.Collect(ref m_Sources);    //←NavMeshSourceTagタグをセットしたオブジェクトをすべて集めてListに格納
+            MyNavMeshSourceTag.Collect(ref m_Sources);    // MyNavMeshSourceTagタグをセットしたオブジェクトをすべて集めてListに格納
             var defaultBuildSettings = NavMesh.GetSettingsByID(0);
-            var bounds = QuantizedBounds();   //←メッシュ生成の範囲をセット
+            var bounds = QuantizedBounds();   // メッシュ生成の範囲をセット
 
             if (asyncUpdate)
-                m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);    //←実際のメッシュ生成を行っている部分。
+                m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);    // 実際のメッシュ生成を行っている部分。
             else
                 NavMeshBuilder.UpdateNavMeshData(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
         }
